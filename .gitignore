@@ -1,3 +1,6 @@
+# special stuff
+Builds/LinuxMakefile/build/
+
 # Compiled Object files
 *.slo
 *.lo
