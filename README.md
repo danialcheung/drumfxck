@@ -47,6 +47,11 @@ make
 
 ## Run
 ```
+cd drumfxck
+```
+
+Without GUI:
+```
 ./midi_to_notes.py | ./notes_to_brainfuck.py | ./feedback.py | ../bf 100 | drumfxck-play
 ```
 
@@ -54,3 +59,7 @@ With GUI:
 ```
 ./midi_to_notes.py | ./notes_to_brainfuck.py | ./feedback.py | tee >(drumfxck-gui >/dev/null &) | ../bf 100 | drumfxck-play
 ```
+
+## Diagram
+
+![diagram](diagram.svg)
