@@ -13,16 +13,10 @@ and if the desired device isn't the first one, specify the name as the argument 
 Script to read processed notes and output brainfuck with correction character '~', which should be interpreted as a backspace.
 The mapping from note -> brainfuck lives here.
 
-<<<<<<< Updated upstream
 ##### bf
 Brainfuck interpreter. Program output is sent to standard error and execution state is send to standard output.
 
 The first command line argument is delay between commands in milliseconds.
-=======
-### Equipment
-
-Drumfxck was mapped according to the Yamaha DTXIV. The mappings can easily be changed to suit any midi instrument in notes_to_brainfuck.py and escape sequence in midi_to_notes.py
->>>>>>> Stashed changes
 
 ##### drumfxck-play
 Program to play audio from BF interpreter.
@@ -31,6 +25,12 @@ Program to play audio from BF interpreter.
 
  - Python 3
  - CMake
+ 
+### Equipment
+
+Drumfxck was mapped according to the Yamaha DTXIV. The mappings can easily be changed to suit any midi instrument in notes_to_brainfuck.py and escape sequence in midi_to_notes.py
+
+To use Dan's drums: download & install Roland UM-ONE mx2 driver.
 
 ## Setup
 
