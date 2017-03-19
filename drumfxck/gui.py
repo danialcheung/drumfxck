@@ -21,7 +21,7 @@ def main():
         'cymbal1': 2,
         'cymbal2': 2,
         'hihat': 2,
-        'idle': 14,
+        'idle': 13,
         'snare': 2,
         'tomtom1': 2,
         'tomtom2': 2,
