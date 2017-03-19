@@ -4,14 +4,14 @@ import mido
 import sys
 
 def handle_note(note):
-    if note == '67': # TODO: check special kill value.
+    if note == 53:
         raise EOFError
     print(note)
     sys.stdout.flush()
 
 def handle_message(message):
     message_dict = message.dict()
-    if message_dict['type'] == 'note_on':
+    if message_dict['type'] == 'note_on' and message_dict['velocity'] != 0:
         note = message_dict['note']
         handle_note(note)
 
