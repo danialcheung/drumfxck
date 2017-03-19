@@ -7,6 +7,8 @@ import threading
 import pygame
 import sys
 
+from .playback import parse_operation
+
 SCREEN_WIDTH = 1366
 SCREEN_HEIGHT = 768
 
@@ -48,8 +50,12 @@ def main():
     event_queue = queue.Queue()
 
     def input_reader_thread():
-        while True:
-            event_queue.put(sys.stdin.read(1))
+        for line in sys.stdin:
+            sys.stdout.write(line+'\n')
+            sys.stdout.flush()
+            op = parse_operation(line)
+            if op is not None:
+                event_queue.put(op.instruction)
 
     threading.Thread(target=input_reader_thread, daemon=True).start()
 
@@ -71,21 +77,21 @@ def main():
             try:
                 queued_event = event_queue.get_nowait()
                 if queued_event is not None:
-                    if queued_event == '1':
+                    if queued_event == '~':
                         reset_state('bass')
-                    elif queued_event == '2':
+                    elif queued_event == '.':
                         reset_state('cymbal1')
-                    elif queued_event == '3':
+                    elif queued_event == '[':
                         reset_state('cymbal2')
-                    elif queued_event == '4':
+                    elif queued_event == ',':
                         reset_state('hihat')
-                    elif queued_event == '5':
+                    elif queued_event == '+':
                         reset_state('snare')
-                    elif queued_event == '6':
+                    elif queued_event == ']':
                         reset_state('tomtom1')
-                    elif queued_event == '7':
+                    elif queued_event == '>':
                         reset_state('tomtom2')
-                    elif queued_event == '8':
+                    elif queued_event == '<':
                         reset_state('tomtom3')
                     elif queued_event == '9':
                         reset_state('idle')

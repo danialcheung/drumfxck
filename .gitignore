@@ -1,5 +1,5 @@
 # special stuff
-Builds/LinuxMakefile/build/
+build
 *.egg-info
 .venv
 __pycache__
