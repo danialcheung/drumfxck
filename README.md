@@ -13,7 +13,29 @@ and if the desired device isn't the first one, specify the name as the argument 
 Script to read processed notes and output brainfuck with correction character '~', which should be interpreted as a backspace.
 The mapping from note -> brainfuck lives here.
 
+##### bf
+Brainfuck interpreter. Program output is sent to standard error and execution state is send to standard output.
+
+The first command line argument is delay between commands in milliseconds.
+
+##### drumfxck-play
+Program to play audio from BF interpreter.
+
+## Requirements
+
+ - Python 3
+ - CMake
+
+## Setup
 
 ```
-./midi_to_notes.py | ./notes_to_brainfuck.py | python3 feedback.py | ../bf 10 | drumfxck-play
+pip3 install simpleaudio numpy mido pygame
+python3 setup.py develop
+cmake .
+make
+```
+
+## Run
+```
+./midi_to_notes.py | ./notes_to_brainfuck.py | python3 feedback.py | ../bf 100 | drumfxck-play
 ```
