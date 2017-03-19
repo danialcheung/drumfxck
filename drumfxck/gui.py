@@ -20,7 +20,7 @@ def main():
         'bass': 2,
         'cymbal1': 2,
         'cymbal2': 2,
-        'hihat': 2,
+        'hihat': 3,
         'idle': 13,
         'snare': 2,
         'tomtom1': 2,
