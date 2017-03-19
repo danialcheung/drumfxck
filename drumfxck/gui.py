@@ -9,8 +9,8 @@ import sys
 
 #from .playback import parse_operation
 
-SCREEN_WIDTH = 800 # 1366
-SCREEN_HEIGHT = int(800 * (9.0/16.0)) # 768
+SCREEN_WIDTH = 1150 # 1366
+SCREEN_HEIGHT = int(1150 * (9.0/16.0)) # 768
 
 
 def main():
