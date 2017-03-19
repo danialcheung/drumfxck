@@ -1,1 +1,0 @@
-/Users/danialcheung/Downloads/JUCE/modules/juce_graphics/native/juce_mac_CoreGraphicsHelpers.h

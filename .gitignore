@@ -1,5 +1,8 @@
 # special stuff
 Builds/LinuxMakefile/build/
+*.egg-info
+.venv
+__pycache__
 
 # Compiled Object files
 *.slo

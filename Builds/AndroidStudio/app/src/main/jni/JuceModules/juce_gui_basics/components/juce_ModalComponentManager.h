@@ -1,1 +1,0 @@
-/Users/danialcheung/Downloads/JUCE/modules/juce_gui_basics/components/juce_ModalComponentManager.h

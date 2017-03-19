@@ -1,1 +1,0 @@
-/Users/danialcheung/Downloads/JUCE/modules/juce_video/playback/juce_QuickTimeMovieComponent.h
