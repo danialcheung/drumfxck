@@ -9,5 +9,5 @@ with import <nixpkgs> {};
       pip install pytest
       python setup.py develop
     '';
-    buildInputs = [ python36 python36Packages.numpy alsaLib ];
+    buildInputs = [ python36 python36Packages.numpy alsaLib cmake ];
   }

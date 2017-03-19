@@ -7,7 +7,7 @@ setup(
     packages=['drumfxck'],
     entry_points={
         'console_scripts': [
-            'drumfxck-play = drumfxck:run_play',
+            'drumfxck-play = drumfxck:playback_main',
         ]
     }
 )
