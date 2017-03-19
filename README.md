@@ -21,6 +21,14 @@ The first command line argument is delay between commands in milliseconds.
 ##### drumfxck-play
 Program to play audio from BF interpreter.
 
+##### drumfxck-gui
+Program that displays an animated Pinkie Pie playing her drum kit in response
+to Brainfuck instructions for a fun visual display! Brainfuck instructions
+are passed to this on stdin.
+
+Full credit for the models and animations go to [CreatorOfPony](http://creatorofpony.deviantart.com/art/Awesome-As-I-Want-To-Be-519619119).
+We only rendered them for our own angle.
+
 ## Requirements
 
  - Python 3
