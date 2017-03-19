@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 # https://www.pygame.org/docs/tut/MoveIt.html
+
+# Command to run it:
+"""
+BF='++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.'
+mkfifo f1; echo $BF | tee f1 | ../build/bf 100 | drumfxck-gui <f1 | drumfxck-play; rm -f f1
+"""
+
 import os
 import queue
 import threading
@@ -48,10 +55,12 @@ def main():
     state_counter = 0
     clock = pygame.time.Clock()
     event_queue = queue.Queue()
+    thread_running = True
 
     def input_reader_thread():
+        nonlocal thread_running
         #for line in sys.stdin:
-        while True:
+        while thread_running:
             sys.stdin.flush()
             c = sys.stdin.read(1)
             if c is None:
@@ -68,7 +77,8 @@ def main():
             #if op is not None:
                 #event_queue.put(op.instruction)
 
-    threading.Thread(target=input_reader_thread, daemon=True).start()
+    thread = threading.Thread(target=input_reader_thread)
+    thread.start()
 
     def reset_state(state_name):
         nonlocal state, state_counter
@@ -132,6 +142,8 @@ def main():
                     reset_state('idle')
 
             elif event.type == pygame.QUIT:
+                thread_running = False
+                thread.join()
                 sys.exit()
 
         screen.blit(FRAMES[state][state_counter], (0,0))
