@@ -62,4 +62,4 @@ With GUI:
 
 ## Diagram
 
-![diagram](diagram.svg)
+![diagram](./diagram.png)
