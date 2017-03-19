@@ -25,6 +25,10 @@ Program to play audio from BF interpreter.
 
  - Python 3
  - CMake
+ - simpleaudio
+ - numpy
+ - mido
+ - pygame
  
 ### Equipment
 
