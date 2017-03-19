@@ -80,3 +80,6 @@ def main():
         play(operation_parser(_sys.stdin))
     except KeyboardInterrupt:
         pass
+
+if __name__ == '__main__':
+    main()
