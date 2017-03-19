@@ -13,7 +13,7 @@ using namespace std;
 const int N = 10000;
 
 // The backspace character.
-const char BACK = '\\';
+const char BACK = '~';
 
 // End of input character.
 const char END = EOF;
@@ -133,9 +133,12 @@ int main(int argc, char** argv) {
         cout << level;
         break;
       case '.':
-        cerr << (char) mem[iMem];
-        cerr.flush();
-        cout << (char) mem[iMem];
+        {
+          char cho = !(((char)mem[iMem]) & (char)0x80) ? (char)mem[iMem] : '*';
+          cerr << cho;
+          cerr.flush();
+          cout << cho;
+        }
         break;
       case ',':
         char c; cin >> c;

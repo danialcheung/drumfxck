@@ -9,5 +9,7 @@ while True:
         sys.stderr.write("\b \b")
     else:
         sys.stderr.write(c)
+    sys.stderr.flush()
 
 print("")
+sys.stderr.write("\n")
