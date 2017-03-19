@@ -29,7 +29,7 @@ Program to play audio from BF interpreter.
  - numpy
  - mido
  - pygame
- 
+
 ### Equipment
 
 Drumfxck was mapped according to the Yamaha DTXIV. The mappings can easily be changed to suit any midi instrument in notes_to_brainfuck.py and escape sequence in midi_to_notes.py
@@ -47,10 +47,10 @@ make
 
 ## Run
 ```
-./midi_to_notes.py | ./notes_to_brainfuck.py | python3 feedback.py | ../bf 100 | drumfxck-play
+./midi_to_notes.py | ./notes_to_brainfuck.py | ./feedback.py | ../bf 100 | drumfxck-play
 ```
 
 With GUI:
 ```
-./midi_to_notes.py | ./notes_to_brainfuck.py | python3 ./feedback.py | tee >(drumfxck-gui >/dev/null &) | ../bf 50 | drumfxck-play
+./midi_to_notes.py | ./notes_to_brainfuck.py | ./feedback.py | tee >(drumfxck-gui >/dev/null &) | ../bf 100 | drumfxck-play
 ```
