@@ -7,10 +7,10 @@ import threading
 import pygame
 import sys
 
-from .playback import parse_operation
+#from .playback import parse_operation
 
-SCREEN_WIDTH = 1366
-SCREEN_HEIGHT = 768
+SCREEN_WIDTH = 800 # 1366
+SCREEN_HEIGHT = int(800 * (9.0/16.0)) # 768
 
 
 def main():
@@ -50,12 +50,23 @@ def main():
     event_queue = queue.Queue()
 
     def input_reader_thread():
-        for line in sys.stdin:
-            sys.stdout.write(line+'\n')
+        #for line in sys.stdin:
+        while True:
+            sys.stdin.flush()
+            c = sys.stdin.read(1)
+            if c is None:
+                sys.stdout.write("\n")
+                sys.stdout.flush()
+                sys.stdout.close()
+                break
+
+            sys.stdout.write(c)
             sys.stdout.flush()
-            op = parse_operation(line)
-            if op is not None:
-                event_queue.put(op.instruction)
+            event_queue.put(c)
+            #op = parse_operation(c)
+            #sys.stderr.write("OP={}\n".format(op))
+            #if op is not None:
+                #event_queue.put(op.instruction)
 
     threading.Thread(target=input_reader_thread, daemon=True).start()
 
@@ -78,7 +89,7 @@ def main():
                 queued_event = event_queue.get_nowait()
                 if queued_event is not None:
                     if queued_event == '~':
-                        reset_state('bass')
+                        reset_state('tomtom3')
                     elif queued_event == '.':
                         reset_state('cymbal1')
                     elif queued_event == '[':
@@ -88,11 +99,11 @@ def main():
                     elif queued_event == '+':
                         reset_state('snare')
                     elif queued_event == ']':
-                        reset_state('tomtom1')
-                    elif queued_event == '>':
-                        reset_state('tomtom2')
+                        reset_state('cymbal1')
                     elif queued_event == '<':
-                        reset_state('tomtom3')
+                        reset_state('tomtom2')
+                    elif queued_event == '>':
+                        reset_state('tomtom1')
                     elif queued_event == '9':
                         reset_state('idle')
 

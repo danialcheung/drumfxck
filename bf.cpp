@@ -39,9 +39,9 @@ int main(int argc, char** argv) {
     code.reserve(1024);
     char ch;
     while ((ch = getchar()) != END) {
-      if (ch == BACK)
-        code.pop_back();
-      else
+      if (ch == BACK) {
+        if (code.size()) code.pop_back();
+      } else
         code.push_back(ch);
     }
   }

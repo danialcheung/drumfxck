@@ -17,7 +17,7 @@ def handle_message(message):
 
 def main():
     try:
-        with mido.open_input() as port:
+        with mido.open_input('UM-ONE') as port:
             for message in port:
                 handle_message(message)
     except Exception as e:
