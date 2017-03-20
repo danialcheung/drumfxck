@@ -68,6 +68,11 @@ With GUI:
 ./midi_to_notes.py | ./notes_to_brainfuck.py | ./feedback.py | tee >(drumfxck-gui >/dev/null &) | ../bf 100 | drumfxck-play
 ```
 
+Final:
+```
+mkfifo f1; { ./midi_to_notes.py | ./notes_to_brainfuck.py | ./feedback.py | tee f1 | ../bf 100 & cat f1; } | drumfxck-gui | drumfxck-play; rm -f f1
+```
+
 ## Diagram
 
 ![diagram](./diagram.png)
